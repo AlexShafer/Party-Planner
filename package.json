@@ -1,0 +1,24 @@
+{
+  "name": "party-planner",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "",
+    "start": "node server.js",
+    "lint": "eslint \"./**/*.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KeithBillings/Party-Planner.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KeithBillings/Party-Planner/issues"
+  },
+  "homepage": "https://github.com/KeithBillings/Party-Planner#readme",
+  "dependencies": {
+    "eslint": "^7.6.0"
+  }
+}
