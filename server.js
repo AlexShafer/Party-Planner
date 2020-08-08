@@ -1,1 +1,1 @@
-let server = "hello world"
+console.log("Hello World!");

@@ -1,8 +1,7 @@
-// Define const to be used for application
 const fs = require("fs");
 const inquirer = require("inquirer");
 
-// Enter Map keys and values to be used for list selections and choices 
+// Enter Map keys and values to be used for list selections and choices
 const eventType = new Map([
   ["Birthday", "Birthday Bash!"],
   ["Happy Hour", "Happy Hour!"],
@@ -59,16 +58,15 @@ inquirer
     ${eventType.get(response.event)}
     ${response.date}
     ${response.location}
-    
-`
+`;
 
     fs.writeFile("event_details.html", eventDetailsFile, function (err) {
       if (err) {
         return console.log(err);
       }
     });
-    // this will need to have a sendFile when serving with server if we want to use an HTML template, OR write a JSON file that an API can pull from, OR a database query POST 
+    // this will need to have a sendFile when serving with server if we want to use an HTML template, OR write a JSON file that an API can pull from, OR a database query POST
 
   });
 
-  // Add guest list function
+// Add guest list function

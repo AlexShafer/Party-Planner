@@ -1,4 +1,3 @@
-// Define const to be used for application
 const fs = require("fs");
 const inquirer = require("inquirer");
 
@@ -19,16 +18,13 @@ inquirer
   // function to write html file contents
   .then(function (response) {
     const guestListFile =
-
-      `${response.guests}
-    
-`
+      `${response.guests}`;
 
     fs.writeFile("guestlist.html", guestListFile, function (err) {
       if (err) {
         return console.log(err);
       }
     });
-    // this will need to have a sendFile when serving with server if we want to use an HTML template, OR write a JSON file that an API can pull from, OR a database query POST 
+    // this will need to have a sendFile when serving with server if we want to use an HTML template, OR write a JSON file that an API can pull from, OR a database query POST
 
   });
