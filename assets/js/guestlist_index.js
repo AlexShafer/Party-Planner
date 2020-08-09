@@ -26,5 +26,4 @@ inquirer
       }
     });
     // this will need to have a sendFile when serving with server if we want to use an HTML template, OR write a JSON file that an API can pull from, OR a database query POST
-
   });
