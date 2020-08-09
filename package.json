@@ -2,6 +2,7 @@
   "name": "party-planner",
   "version": "1.0.0",
   "description": "",
+<<<<<<< HEAD
   "main": "event_index.js",
   "dependencies": {
     "express": "^4.17.1",
@@ -14,6 +15,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
+=======
+  "main": "server.js",
+  "scripts": {
+    "test": "",
+    "start": "node server.js",
+    "lint": "eslint \"./**/*.js\""
+>>>>>>> 6b7431245b8c05d65b10cb1d1019069a6c3e4a51
   },
   "repository": {
     "type": "git",
@@ -24,5 +32,12 @@
   "bugs": {
     "url": "https://github.com/KeithBillings/Party-Planner/issues"
   },
+<<<<<<< HEAD
   "homepage": "https://github.com/KeithBillings/Party-Planner#readme"
+=======
+  "homepage": "https://github.com/KeithBillings/Party-Planner#readme",
+  "dependencies": {
+    "eslint": "^7.6.0"
+  }
+>>>>>>> 6b7431245b8c05d65b10cb1d1019069a6c3e4a51
 }
