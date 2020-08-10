@@ -17,7 +17,17 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false,
       len: [1]
     },
+    date: {
+      type: DataTypes.DATE,
+      allowNull: false
+    }
   });
+
+  Event.associate = function (models) {
+    Event.hasMany(models.Guestlist, {
+      onDelete: "cascade"
+    });
+  };
 
   return Event;
 };

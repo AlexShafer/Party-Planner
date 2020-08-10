@@ -12,17 +12,15 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false,
       len: [1]
     },
-    present: {
+    other: {
       type: DataTypes.STRING,
       allowNull: false,
       len: [1]
-    },
+    }
   });
 
   Supplies.associate = function (models) {
-    // We're saying that Supplies should belong to a GuestList
-    // Supplies can't be created without a GuestList due to the foreign key constraint
-    Supplies.belongsTo(models.guestlist, {
+    Supplies.belongsTo(models.Guestlist, {
       foreignKey: {
         allowNull: false
       }

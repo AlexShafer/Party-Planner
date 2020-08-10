@@ -7,27 +7,31 @@ module.exports = function (sequelize, DataTypes) {
         len: [1]
       }
     },
-    info: {
+    email: {
       type: DataTypes.STRING,
       allowNull: false,
       len: [1]
     },
-    info2: {
+    phoneNumber: {
       type: DataTypes.STRING,
       allowNull: false,
       len: [1]
-    },
+    }
   });
 
   Guestlist.associate = function (models) {
-    // We're saying that Guestlist should belong to a event
-    // Guestlist can't be created without a event due to the foreign key constraint
-    Guestlist.belongsTo(models.event, {
+    Guestlist.belongsTo(models.Event, {
       foreignKey: {
         allowNull: false
       }
     });
   };
 
-  return Supplies;
+  Guestlist.associate = function (models) {
+    Guestlist.hasMany(models.Supplies, {
+      onDelete: "cascade"
+    });
+  };
+
+  return Guestlist;
 };
