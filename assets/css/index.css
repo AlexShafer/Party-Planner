@@ -1,0 +1,16 @@
+#landingPageContainer {
+  width: 100vw;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 80rem;
+  margin: 0 auto; 
+  padding: 2rem;
+  flex-direction: column;
+}
+
+.btn {
+  margin: 2rem;
+  width: 20rem;
+}
