@@ -1,57 +1,151 @@
 <!DOCTYPE html>
 <html lang="en-us">
+  <head>
+    <meta charset="UTF-8" />
+    <title>The Party Planning Committee!</title>
 
-<head>
-  <meta charset="UTF-8">
-  <title>The Party Planning Committee!</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet"/>
+    <!-- AOS CSS Animate On Scroll -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/event.css" />
+  </head>
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <body>
+    <div class="jumbotron">
+      <h1 class="text-center">The Party Planning Committee!</h1>
+      <h6 id="officeQuote"></h6>
+    </div>
+
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col-3">
+          
+            <h4>Event Name</h4>
+            <p>Event Date:</p>
+            <p>Event Time:</p>
+            <p>Event Location:</p>
+            <p>Event Theme:</p>
+          
+        </div>
+        <div class="col-5">
+          
+            <h4>Venue Directions</h4>
+            <iframe
+              width="600"
+              height="450"
+              frameborder="0" style="border:0"
+              src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDCnUPHJxYSY1WGTKg2_vWVuT3wMLmrXmM
+                &q=Space+Needle,Seattle+WA" allowfullscreen>
+            </iframe>
+          
+        </div>
+        <div class="col-3">
+          <h4>Message Board:</h4>
+          <input
+            class="form-control"
+            type="text"
+            id="author"
+            placeholder="Enter Your Name"
+          />
+          <textarea
+            class="form-control"
+            rows="3"
+            id="message-box"
+            placeholder="Enter Message Here!"
+          ></textarea>
+          <button id="message-submit" class="btn btn-lg pull-right">
+            Submit!
+          </button>
+        </div>
+      </div>
+
+      <div class="row justify-content-between">
+        <div class="col-5">
+          <h4>Guest List</h4>
+          <p>
+            Display Guest List here with name, contact information, if they have
+            RSVPed to the event, and if they have picked an item from the
+            potluck list (bonus feature)
+          </p>
+          <!-- Accordion Wrapper -->
+          <div class="accordion md-accordion accordion-blocks"
+            id="accordionWrapper"
+            role="tablist"
+            aria-multiselectable="true"
+          >
+            <div class="card">
+              <!-- Card header -->
+              <div class="card-header" role="tab" id="headingGuestlist">
+                <!--Options-->
+                <div class="dropdown float-left">
+                  <button
+                    class="btn btn-info btn-sm m-0 mr-3 p-2 dropdown-toggle"
+                    type="button"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    <i class="fas fa-pencil-alt"></i>
+                  </button>
+                </div>
+
+                <!-- Heading -->
+                <a
+                  data-toggle="collapse"
+                  data-parent="#accordionWrapper"
+                  href="#collapseGuestlist"
+                  aria-expanded="true"
+                  aria-controls="collapseGuestlist"
+                >
+                  <h5 class="mt-1 mb-0">
+                    <span id="guestName">Guest Name</span> 
+                    <i class="fas fa-angle-down rotate-icon"></i> <!-- This icon is not working :( -->
+                  </h5>
+                </a>
+              </div>
+              <!-- Card body -->
+              <div
+                id="collapseGuestlist"
+                class="collapse"
+                role="tabpanel"
+                aria-labelledby="headingGuestlist"
+                data-parent="#accordionWrapper"
+              >
+                <div class="card-body">
+                  <p></p>
+                  Guest Information, food, beverage, etc list
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-5">
+          <h4>Messages:</h4>
+          <p>Here we will display messages from user input</p>
+        </div>
+      </div>
+    </div>
+
   <!-- jQuery -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
+  <!-- Bootstrap -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
   <!-- Moment.js -->
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.16.0/moment.min.js"></script>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Shrikhand" rel="stylesheet">
-
-  <!-- CSS -->
-  <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
-
-</head>
-
-<body>
-
-  <div class="jumbotron">
-    <h1 class="text-center">The Party Planning Committee!</h1>
-  </div>
-
-  <div class="container">
-
-    <div class="row">
-      <div class="col-sm-8 col-sm-offset-2">
-        <p class="cool-font">Name</p>
-        <input class="form-control" type="text" id="author" placeholder="Enter Your Name">
-        <br>
-        <p class="cool-font">Message</p>
-        <textarea class="form-control" rows="3" id="message-box" placeholder="Enter Message Here!"></textarea>
-        <button id="message-submit" class="btn btn-lg pull-right">Submit!</button>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-sm-8 col-sm-offset-2">
-        <h2>Messages</h2>
-        <hr>
-        <div id="message-area"></div>
-      </div>
-    </div>
-
-  </div>
-
-  <script type="text/javascript" src="message.js"></script>
-</body>
-
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.16.0/moment.min.js"
+    ></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <!-- Local JS -->
+  <script type="text/javascript" src="../assets/js/event.js"></script>
+  </body>
 </html>

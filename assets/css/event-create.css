@@ -1,0 +1,12 @@
+/* input[type=text] {
+  padding: 2rem;
+  border:0;
+  box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+} */
+
+.card {
+  background-color: rgba(7, 7, 7, 0.281);
+  margin: .5rem;
+  color: #1da1f2;
+  text-shadow: black 0rem 0rem .5rem;
+}
