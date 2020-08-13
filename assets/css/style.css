@@ -1,7 +1,8 @@
 /* Utility */
 p {
+  font-family: 'Roboto', sans-serif;
   margin: 0;
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 body {
@@ -12,6 +13,18 @@ h1 {
   font-family: 'Lobster', cursive;
   font-size: 6rem;
   text-shadow: black 0rem 0rem .3rem;
+}
+
+h2 {
+  font-family: 'Lobster', cursive;
+  text-shadow: white 0rem 0rem .3rem;
+  font-size: 4rem;
+}
+
+h4 {
+  font-family: 'Lobster', cursive;
+  text-shadow: white 0rem 0rem .3rem;
+  font-size: 2rem;
 }
 
 h6 {
