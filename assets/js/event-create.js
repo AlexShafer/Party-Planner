@@ -1,8 +1,7 @@
 $(document).ready(function () {
-  
   AOS.init({
-      easing: `ease`,
-      duration: 500
+    easing: "ease",
+    duration: 500
   });
 
 });

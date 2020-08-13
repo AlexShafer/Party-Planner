@@ -14,7 +14,8 @@ async function getGuestList () {
 
 async function fillGuestList () {
   const guestList = await getGuestList ();
-  
+  console.log(guestList);
 }
+
 
 $(accordionWrapper).HTML(fillGuestList());
