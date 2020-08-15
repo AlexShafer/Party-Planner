@@ -1,10 +1,18 @@
-.card {
-  background-color: rgba(7, 7, 7, 0.281);;
-  margin: .5rem;
-  color: #1da1f2;
-  text-shadow: black 0rem 0rem .5rem;
+.row {
+    padding: 1rem;
 }
 
-.btn {
-  background-color: #1da1f2;;
+.col,
+.col-2,
+.col-3,
+.col-4,
+.col-5,
+.col-8 {
+    background-color: rgba(7, 7, 7, 0.281);
+    border:1px solid black;
+}
+
+.form-control {
+    
+    
 }
