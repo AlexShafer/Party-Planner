@@ -14,8 +14,47 @@ async function getGuestList () {
 
 async function fillGuestList () {
   const guestList = await getGuestList ();
-  console.log(guestList);
+  // console.log(guestList);
+  // make a loop listing all guests and populating html page 
 }
 
 
 $(accordionWrapper).HTML(fillGuestList());
+
+// event map
+
+// var map;
+
+//   function initMap() {
+//     map = new google.maps.Map(document.getElementById('map'), {
+//       center: {lat: -34.397, lng: 150.644},
+//       zoom: 8,
+//       streetViewControl: false
+//     };
+//     let markers = eventLocation.features;
+//       console.log(markers);
+//     let locationName = markers.properties.venuName;
+//     let latitude = markers.geometry.coordinates[1];
+//     let longitude = markers.geometry.coordinates[0];
+//       console.log(locationName + ": " + latitide + " " + longitude);
+//     dropMarker(latitude, longitude, locationName);
+//   }
+
+//   function dropMarker(lat, long, locationName){
+//     var location = {lat: lat, lng: lng};
+//     var contentString = "<h4>" + locationName + "</h4>";
+//     var infowindow = new google.maps.InfoWindow({
+//       content: contentString
+//     });
+//     var marker = new google.maps.Marker({position: location, map: map, title: locationName});
+//     marker.addListener('click', function() {
+//       infowindow.open(map, marler);
+//     });
+//   }
+
+// const eventLocation = {
+//   "type": "FeatureCollection",
+//   "features": [
+//     {"type":"Feature","properties":{"venueName":"PULL FROM DB"},"geometry":{"type":"Point","coordinates":[66.666666,77.77777]}}
+//   ]
+// }
