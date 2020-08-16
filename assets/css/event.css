@@ -1,18 +1,9 @@
-.row {
-    padding: 1rem;
-}
-
-.col,
-.col-2,
-.col-3,
-.col-4,
-.col-5,
-.col-8 {
-    background-color: rgba(7, 7, 7, 0.281);
+.card {
+    background-color: rgba(7, 7, 7, 0.333);
     border:1px solid black;
 }
 
-.form-control {
-    
-    
+#map {
+    height: 4rem;
+    width: 4rem;
 }

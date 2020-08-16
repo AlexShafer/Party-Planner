@@ -3,11 +3,12 @@ var fs = require("fs");
 var path = require("path");
 var Sequelize = require("sequelize");
 var basename = path.basename(module.filename);
+require("dotenv").config();
 var env = process.env.NODE_ENV || "development";
 var config = require(__dirname + "/../config/config.json")[env];
 var db = {};
 config.host=process.env.HOST;
-const sequelize = new Sequelize(process.env.DATABASE, process.env.USERNAME, process.env.DB_PASSWORD, config);
+const sequelize = new Sequelize(process.env.DATABASE, process.env.DB_USERNAME, process.env.DB_PASSWORD, config);
 fs
   .readdirSync(__dirname)
   .filter(function(file) {
