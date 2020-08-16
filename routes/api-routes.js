@@ -4,17 +4,28 @@
 
 // Dependencies
 // =============================================================
-var Event, Guestlist, Supplies = require("../models");
+var db = require("../models");
 
 // Routes
 // =============================================================
 module.exports = function(app) {
+  app.get("/api/Events", function(req, res) {
+    // Here we add an "include" property to our options in our findAll query
+    // We set the value to an array of the models we want to include in a left outer join
+    // In this case, just db.Post
+    db.Event.findAll({
+      include: [db.Guestlist]
+    }).then(function(dbEvent) {
+      res.json(dbEvent);
+    });
+  });
+
   // Search for Specific Event (or all Events) then provides JSON
   app.get("/api/:Events?", function(req, res) {
     if (req.params.Events) {
       // Display the JSON for ONLY that Event.
       // (Note how we're using the ORM here to run our searches)
-      Event.findOne({
+      db.Event.findOne({
         where: {
           routeName: req.params.Events
         }
@@ -22,7 +33,7 @@ module.exports = function(app) {
         return res.json(result);
       });
     } else {
-      Event.findAll().then(function(result) {
+      db.Event.findAll().then(function(result) {
         return res.json(result);
       });
     }
@@ -32,25 +43,25 @@ module.exports = function(app) {
   app.post("/api/event-create", function(req, res) {
     // Take the request...
     const event = req.body;
-
-    // Using a RegEx Pattern to remove spaces
-    // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-
-    let routeName = event.eventName.replace(/\s+/g, "").toLowerCase();
+    console.log("this is the router reading data", event);
 
     // Then add the Event to the database using sequelize
-    Event.create({
-      name: routeName,
+    db.Event.create({
+      name: event.eventName,
       location: event.inputVenue,
+      address: event.eventAddress,
+      city: event.inputCity,
+      state: event.inputState,
+      zipcode: event.inputZip,
       theme: event.eventDescription,
       date: event.inputDate,
       time: event.inputTime
     });
 
-    Guestlist.create({
+    db.Guestlist.create({
       name: event.guestName,
-      email: event.email,
-      phoneNumber: event.phoneNumber
+      email: event.guestEmail,
+      phoneNumber: event.guestPhoneNumber
     });
 
     res.status(204).end();

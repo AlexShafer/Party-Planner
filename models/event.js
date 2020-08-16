@@ -12,6 +12,26 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false,
       len: [1]
     },
+    address: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      len: [1]
+    },
+    city: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      len: [1]
+    },
+    state: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      len: [1]
+    },
+    zipcode: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      len: [1]
+    },
     theme: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -35,3 +55,6 @@ module.exports = function (sequelize, DataTypes) {
 
   return Event;
 };
+
+// Syncs with DB
+// Event.sync();

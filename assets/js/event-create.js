@@ -1,32 +1,5 @@
 const proxyurl = "https://cors-anywhere.herokuapp.com/";
 const url = "https://www.officeapi.dev/api/quotes/random"; // site that doesn’t send Access-Control-*
-const eventName = $("#eventName").val();
-const eventDescription = $("#eventDescription").val();
-const inputDate = $("#inputDate").val();
-const inputTime = $("#inputTime").val();
-const inputVenue = $("#inputVenue").val();
-const eventAddress = $("#eventAddress").val();
-const inputCity = $("#inputCity").val();
-const inputState = $("#inputState").val();
-const inputZip = $("#inputZip").val();
-const guestName = $("#guestName").val();
-const guestEmail = $("#guestEmail").val();
-const guestPhoneNumber = $("#guestPhoneNumber").val();
-
-const eventObject = [{
-  eventName: eventName,
-  eventDescription: eventDescription,
-  inputDate: inputDate,
-  inputTime: inputTime,
-  inputVenue: inputVenue,
-  eventAddress: eventAddress,
-  inputCity: inputCity,
-  inputState: inputState,
-  inputZip: inputZip,
-  guestName: guestName,
-  guestEmail: guestEmail,
-  guestPhoneNumber: guestPhoneNumber
-}];
 
 const createYourParty = $("#createYourParty");
 const addGuest = $("#addGuest");
@@ -52,11 +25,43 @@ const officeQuote = function () {
   });
 };
 
+function gatherFormData() {
+  const eventName = $("#eventName").val();
+  const eventDescription = $("#eventDescription").val();
+  const inputDate = $("#inputDate").val();
+  const inputTime = $("#inputTime").val();
+  const inputVenue = $("#inputVenue").val();
+  const eventAddress = $("#eventAddress").val();
+  const inputCity = $("#inputCity").val();
+  const inputState = $("#inputState").val();
+  const inputZip = $("#inputZip").val();
+  const guestName = $("#guestName").val();
+  const guestEmail = $("#guestEmail").val();
+  const guestPhoneNumber = $("#guestPhoneNumber").val();
+
+  const eventObject = {
+    eventName: eventName,
+    eventDescription: eventDescription,
+    inputDate: inputDate,
+    inputTime: inputTime,
+    inputVenue: inputVenue,
+    eventAddress: eventAddress,
+    inputCity: inputCity,
+    inputState: inputState,
+    inputZip: inputZip,
+    guestName: guestName,
+    guestEmail: guestEmail,
+    guestPhoneNumber: guestPhoneNumber
+  };
+  return eventObject;
+}
+
 function eventCreate() {
+  const newEvent = gatherFormData();
   $.ajax({
     method: "POST",
-    url: "api/event-create",
-    data: eventObject
+    url: "/api/event-create",
+    data: newEvent
   });
 }
 
@@ -80,6 +85,16 @@ $(addGuest).click(function () {
     </div>`
   );
 });
+
+// function returnData(){
+//   $.ajax({
+//     method: "GET",
+//     url: "api/Events",
+//     data: event
+//   }).then(function(response){
+//     console.log(response);
+//   });
+// };
 
 // Create Event
 $(createYourParty).click(function () {

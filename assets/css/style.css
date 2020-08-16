@@ -5,7 +5,7 @@ p {
 }
 
 body {
-  background-image: url("/assets/images/random_grey_variations.png");
+  background-image: url("/images/random_grey_variations.png");
 }
 
 h1 {
@@ -37,7 +37,7 @@ h6 {
 /* Header */
 .jumbotron {
   color: white;
-  background-image: url("/assets/images/discoball.jpg");
+  background-image: url("/images/discoball.jpg");
   background-position: center;
 }
 
