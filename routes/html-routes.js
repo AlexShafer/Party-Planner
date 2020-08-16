@@ -13,18 +13,18 @@ module.exports = function (app) {
     console.log("html routes is here");
     res.sendFile(path.join(__dirname, "../view/index.html"));
   });
-  app.get("/event", function (req, res) {
+  app.get("/viewEvent", function (req, res) {
     res.sendFile(path.join(__dirname, "../view/event.html"));
   });
   // all route loads the all.html page,
   // where all events in the db are displayed
-  app.get("/all", function (req, res) {
+  app.get("/allEvent", function (req, res) {
     res.sendFile(path.join(__dirname, "../view/event-search.html"));
   });
 
   // add route loads the add.html page,
   // where users can enter new events to the db
-  app.get("/add", function (req, res) {
+  app.get("/addEvent", function (req, res) {
     res.sendFile(path.join(__dirname, "../view/event-create.html"));
   });
 

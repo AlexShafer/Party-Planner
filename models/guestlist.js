@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-  let Guestlist = sequelize.define("Guestlist", {
+  const Guestlist = sequelize.define("Guestlist", {
     name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -27,11 +27,11 @@ module.exports = function (sequelize, DataTypes) {
     });
   };
 
-  Guestlist.associate = function (models) {
-    Guestlist.hasMany(models.Supplies, {
-      onDelete: "cascade"
-    });
-  };
+  // Guestlist.associate = function (models) {
+  //   Guestlist.hasMany(models.Supplies, {
+  //     onDelete: "cascade"
+  //   });
+  // };
 
   return Guestlist;
 };

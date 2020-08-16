@@ -48,9 +48,7 @@ module.exports = function (sequelize, DataTypes) {
   });
 
   Event.associate = function (models) {
-    Event.hasMany(models.Guestlist, {
-      onDelete: "cascade"
-    });
+    Event.hasOne(models.Guestlist);
   };
 
   return Event;
