@@ -1,9 +1,4 @@
-const proxyurl = "https://cors-anywhere.herokuapp.com/";
-const url = "https://www.officeapi.dev/api/quotes/random"; // site that doesn’t send Access-Control-*
-
 const createYourParty = $("#createYourParty");
-const addGuest = $("#addGuest");
-const createGuestList = $("#createGuestList");
 
 $(document).ready(function () {
   AOS.init({
@@ -11,19 +6,6 @@ $(document).ready(function () {
     duration: 500
   });
 });
-
-fetch(proxyurl + url) // https://cors-anywhere.herokuapp.com/https://example.com
-  .then(response => response.text())
-  .catch(() => console.log("Can’t access " + url + " response. Blocked by browser?"));
-
-const officeQuote = function () {
-  $.ajax({
-    url: (proxyurl + url)
-  }).then(function (response) {
-    $("#officeQuote").empty();
-    $("#officeQuote").append(response.data.content + " -- " + response.data.character.firstname + " " + response.data.character.lastname);
-  });
-};
 
 function gatherFormData() {
   const eventName = $("#eventName").val();
@@ -35,9 +17,6 @@ function gatherFormData() {
   const inputCity = $("#inputCity").val();
   const inputState = $("#inputState").val();
   const inputZip = $("#inputZip").val();
-  const guestName = $("#guestName").val();
-  const guestEmail = $("#guestEmail").val();
-  const guestPhoneNumber = $("#guestPhoneNumber").val();
 
   const eventObject = {
     eventName: eventName,
@@ -49,52 +28,21 @@ function gatherFormData() {
     inputCity: inputCity,
     inputState: inputState,
     inputZip: inputZip,
-    guestName: guestName,
-    guestEmail: guestEmail,
-    guestPhoneNumber: guestPhoneNumber
   };
   return eventObject;
 }
 
-function eventCreate() {
+async function eventCreate() {
   const newEvent = gatherFormData();
-  $.ajax({
+  const createdEvent = await $.ajax({
     method: "POST",
     url: "/api/event-create",
     data: newEvent
   });
+  console.log("created event is: ", createdEvent);
+  const eventId = "?event_id=" + createdEvent.id;
+  window.location.href = "/addGuest" + eventId;
 }
-
-// Add another guest input form
-let i = 0;
-$(addGuest).click(function () {
-  event.preventDefault();
-  i++;
-  $(createGuestList).append(
-    `<div class="form-group col-md-4">
-      <label for="inputGuestName">Name</label>
-      <input type="text" class="form-control" id="guestName${i}">
-    </div>
-    <div class="form-group col-md-4">
-      <label for="inputGuestEmail">Email</label>
-      <input type="text" class="form-control" id="guestEmail${i}">
-    </div>
-    <div class="form-group col-md-2">
-      <label for="inputGuestPhoneNumber">Phone Number</label>
-      <input type="text" class="form-control" id="guestPhoneNumber${i}">
-    </div>`
-  );
-});
-
-// function returnData(){
-//   $.ajax({
-//     method: "GET",
-//     url: "api/Events",
-//     data: event
-//   }).then(function(response){
-//     console.log(response);
-//   });
-// };
 
 // Create Event
 $(createYourParty).click(function () {
@@ -102,5 +50,5 @@ $(createYourParty).click(function () {
   eventCreate();
 });
 
-officeQuote();
+
 

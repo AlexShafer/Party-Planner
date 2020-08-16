@@ -3,27 +3,27 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Create Your Event</title>
+  <title>Create Your Guest List</title>
 
-   <!-- Bootstrap CSS -->
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
- 
-   <!-- jQuery -->
-   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
- 
-   <!-- Moment.js -->
-   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.16.0/moment.min.js"></script>
- 
-   <!-- Google Fonts -->
-   <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
- 
-   <!-- AOS CSS Animate On Scroll -->
-   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
- 
-   <!-- CSS -->
-   <link rel="stylesheet" type="text/css" href="css/style.css">
-   <link rel="stylesheet" type="text/css" href="css/event-create.css">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  <!-- Moment.js -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.16.0/moment.min.js"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+
+  <!-- AOS CSS Animate On Scroll -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/guest-create.css">
 
 </head>
 
@@ -38,14 +38,52 @@
     <div data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
       <div data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="2500">
 
-    <form>
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="inputGuestName">Name</label>
-          <input type="text" class="form-control" id="guestName">
-        </div>
-        <div class="form-group col-md-6">
-          <label for="inputGuestContact">Event Description</label>
-          <input type="text" class="form-control" id="guestContact">
-        </div>
+          <!-- Guest List Input -->
+          <div class="form-row" id="createGuestList">
+            <div class="form-group col-md-4">
+              <label for="inputGuestName">Name</label>
+              <input type="text" class="form-control" id="guestName">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="inputGuestEmail">Email</label>
+              <input type="text" class="form-control" id="guestEmail">
+            </div>
+            <div class="form-group col-md-2">
+              <label for="inputGuestPhoneNumber">Phone Number</label>
+              <input type="text" class="form-control" id="guestPhoneNumber">
+            </div>
+          </div>
+          
+          <!-- Button -->
+          <div class="form-group col-md-2">
+            <button type="submit" id="addGuest" class="btn btn-dark">Add Another Guest</button>
+          </div>
+
+          <!-- Submit -->
+          <button type="submit" id="createYourGuestList" class="btn btn-dark">Create Your Guest List and View Your Event!</button>
+        </form>
       </div>
+    </div>
+  </div>
+
+  <!-- jQuery.js -->
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
+  <!-- popper.js -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <!-- bootstrap -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
+  <!-- Moment.js -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.16.0/moment.min.js"></script>
+  <!-- AOS.js -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <!-- Local JS -->
+  <script type="text/javascript" src="js/guest-create.js"></script>
+  <script type="text/javascript" src="js/office.js"></script>
+</body>
+
+</html>
