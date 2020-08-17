@@ -5,27 +5,29 @@ search = JSON.parse('{"' + decodeURI(search).replace(/"/g, '\\"').replace(/&/g, 
 // Diplay event data on the event page
 $.get(`/api/events/${search.event_id}`, function (data) {
   console.log(data);
+  // append the event name to the title
+  $("#event-title").append(data.name);
   // the name
-  $("#event-name").append("<h4>" + data.name + "</h4>");
+  $("#event-name").append("<h3>" + data.name + "</h3>");
   // the date
-  $("#event-details").append("<h5>Event Date: " + data.date + "</h5>");
+  $("#event-details").append("<h4>Event Date: " + data.date + "</h4>");
   // the time
-  $("#event-details").append("<h5>Event Time: " + data.time + "</h5>");
+  $("#event-details").append("<h4>Event Time: " + data.time + "</h4>");
   // the location
-  $("#event-details").append("<h5>Location: " + data.location + "</h5>");
+  $("#event-details").append("<h4>Location: " + data.location + "</h4>");
   // the theme
-  $("#event-details").append("<h5>Theme: " + data.theme + "</h5>");
+  $("#event-details").append("<h4>Theme: " + data.theme + "</h4>");
 });
 
 // Display Guest List on the event page
 $.get(`/api/guest-list/${search.event_id}`, function (data) {
   console.log("guest list data is: ", data);
   // the guest name
-  $("#guestInfo").append("<h6>Guest Name: " + data.name + "</h6>");
+  $("#guest-info").append("<h4>Guest Name: " + data.name + "</h4>");
   // the time
-  $("#guestInfo").append("<h6>Email Address: " + data.email + "</h6>");
+  $("#guest-info").append("<h4>Email Address: " + data.email + "</h4>");
   // the location
-  $("#guestInfo").append("<h6>Phone Number: " + data.phoneNumber + "</h6>");
+  $("#guest-info").append("<h4>Phone Number: " + data.phoneNumber + "</h4>");
 });
 
 

@@ -20,6 +20,8 @@ module.exports = function (sequelize, DataTypes) {
   });
 
   Guestlist.associate = function (models) {
+    // We're saying that a Guestlist should belong to an Event
+    // A Guestlist can't be created without an Event due to the foreign key constraint
     Guestlist.belongsTo(models.Event, {
       foreignKey: {
         allowNull: false

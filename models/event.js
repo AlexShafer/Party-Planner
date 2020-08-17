@@ -48,7 +48,11 @@ module.exports = function (sequelize, DataTypes) {
   });
 
   Event.associate = function (models) {
-    Event.hasMany(models.Guestlist);
+    // Associating Event with Guestlist
+    // When an Event is deleted, also delete associated Guestlist
+    Event.hasMany(models.Guestlist, {
+      onDelete: "cascade"
+    });
   };
 
   return Event;
