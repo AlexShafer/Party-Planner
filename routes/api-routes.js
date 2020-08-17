@@ -9,38 +9,23 @@ var db = require("../models");
 // Routes
 // =============================================================
 module.exports = function (app) {
-  app.get("/api/Events", function (req, res) {
+  app.get("/api/events", function (req, res) {
     // Here we add an "include" property to our options in our findAll query
     // We set the value to an array of the models we want to include in a left outer join
     // In this case, just db.Post
-    db.Event.findAll({
+    let name = req.query.name;
+    let query = {
       include: [db.Guestlist]
-    }).then(function (dbEvent) {
+    };
+    if (name) {
+      query.where = { name };
+    }
+    db.Event.findAll(query).then(function (dbEvent) {
       res.json(dbEvent);
     });
   });
 
-  // Search for Specific Event (or all Events) then provides JSON
-  app.get("/api/:Events?", function (req, res) {
-    if (req.params.Events) {
-      // Display the JSON for ONLY that Event.
-      // (Note how we're using the ORM here to run our searches)
-      db.Event.findOne({
-        where: {
-          routeName: req.params.Events
-        }
-      }).then(function (result) {
-        return res.json(result);
-      });
-    } else {
-      db.Event.findAll().then(function (result) {
-        return res.json(result);
-      });
-    }
-  });
-
-  // Creating new Event
-  app.post("/api/event-create", function (req, res) {
+  app.post("/api/events", function (req, res) {
     // console.log("req.body raw is: ", req.body);
 
     const newEvent = {
@@ -61,6 +46,21 @@ module.exports = function (app) {
       // console.log("dbEvent is: ", dbEvent);
       res.json(dbEvent);
     });
+  });
+
+  // Search for Specific Event (or all Events) then provides JSON
+  app.get("/api/events/:id", function (req, res) {
+    if (req.params.id) {
+      // Display the JSON for ONLY that Event.
+      // (Note how we're using the ORM here to run our searches)
+      db.Event.findOne({ where: { id: parseInt(req.params.id) } }).then(function (result) {
+        return res.json(result);
+      });
+    } else {
+      db.Event.findAll().then(function (result) {
+        return res.json(result);
+      });
+    }
   });
 
   // creating guest list
