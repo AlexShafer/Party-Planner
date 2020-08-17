@@ -53,6 +53,3 @@ module.exports = function (sequelize, DataTypes) {
 
   return Event;
 };
-
-// Syncs with DB
-// Event.sync();

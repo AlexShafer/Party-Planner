@@ -1,12 +1,5 @@
 const createYourParty = $("#createYourParty");
 
-$(document).ready(function () {
-  AOS.init({
-    easing: "ease",
-    duration: 500
-  });
-});
-
 function gatherFormData() {
   const eventName = $("#eventName").val();
   const eventDescription = $("#eventDescription").val();
@@ -53,6 +46,3 @@ $(createYourParty).click(function () {
   event.preventDefault();
   eventCreate();
 });
-
-
-

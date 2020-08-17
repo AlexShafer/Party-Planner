@@ -13,8 +13,8 @@
   <!-- AOS CSS Animate On Scroll -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   <!-- CSS -->
-  <link rel="stylesheet" type="text/css" href="css/style.css"/>
-  <link rel="stylesheet" type="text/css" href="css/event.css"/>
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <link rel="stylesheet" type="text/css" href="css/event.css" />
 
 </head>
 
@@ -65,77 +65,80 @@
               Submit!
             </button>
           </div>
-        </div>   
+        </div>
       </div>
-      <!-- row end --> -->
+      <!-- row end -->
     </div>
 
     <div class="row">
-      <div class="col-6">\
+      <div class="col-6">
         <div class="card">
           <div class="card-header">
             <h4>Message Board:</h4>
           </div>
           <div class="card-body">
-          <!-- Accordion Wrapper -->
-            <div class="accordion md-accordion accordion-blocks" id="accordionWrapper" role="tablist" aria-multiselectable="true">
+            <!-- Accordion Wrapper -->
+            <div class="accordion md-accordion accordion-blocks" id="accordionWrapper" role="tablist"
+              aria-multiselectable="true">
+              <div class="card">
+                <!-- Card header -->
+                <div class="card-header" role="tab" id="headingGuestlist">
+                  <!--Options-->
+                  <div class="dropdown float-left">
+                    <button class="btn btn-info btn-sm m-0 mr-3 p-2 dropdown-toggle" type="button"
+                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="fas fa-pencil-alt"></i>
+                    </button>
+                  </div>
+
+                  <!-- Heading -->
+                  <a data-toggle="collapse" data-parent="#accordionWrapper" href="#collapseGuestlist"
+                    aria-expanded="true" aria-controls="collapseGuestlist">
+                    <h5 class="mt-1 mb-0">
+                      <span id="guestName">Guest Name</span>
+                      <i class="fas fa-angle-down rotate-icon"></i> <!-- This icon is not working :( -->
+                    </h5>
+                  </a>
+                </div>
+                <!-- Card body -->
+                <div id="collapseGuestlist" class="collapse" role="tabpanel" aria-labelledby="headingGuestlist"
+                  data-parent="#accordionWrapper">
+                  <div class="card-body">
+                    <p></p>
+                    Guest Information, food, beverage, etc list
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6">
             <div class="card">
-              <!-- Card header -->
-              <div class="card-header" role="tab" id="headingGuestlist">
-              <!--Options-->
-              <div class="dropdown float-left">
-                <button class="btn btn-info btn-sm m-0 mr-3 p-2 dropdown-toggle" type="button" data-toggle="dropdown"
-                  aria-haspopup="true" aria-expanded="false">
-                  <i class="fas fa-pencil-alt"></i>
-                </button>
+              <div class="card-header">
+                <h4>Messages:</h4>
               </div>
-
-              <!-- Heading -->
-              <a data-toggle="collapse" data-parent="#accordionWrapper" href="#collapseGuestlist" aria-expanded="true"
-                aria-controls="collapseGuestlist">
-                <h5 class="mt-1 mb-0">
-                  <span id="guestName">Guest Name</span>
-                  <i class="fas fa-angle-down rotate-icon"></i> <!-- This icon is not working :( -->
-                </h5>
-              </a>
-            </div>
-            <!-- Card body -->
-            <div id="collapseGuestlist" class="collapse" role="tabpanel" aria-labelledby="headingGuestlist"
-              data-parent="#accordionWrapper">
               <div class="card-body">
-                <p></p>
-                Guest Information, food, beverage, etc list
+                <p>Here we will display messages from user input</p>
               </div>
             </div>
           </div>
+          <!-- row end -->
         </div>
+
       </div>
 
-      <div class="col-6">
-        <div class="card">
-          <div class="card-header">
-            <h4>Messages:</h4>
-          </div>
-          <div class="card-body">
-            <p>Here we will display messages from user input</p>
-          </div>
-      </div>
-    <!-- row end -->
-    </div>
-
-  </div>
-
-  <!-- jQuery -->
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <!-- Bootstrap -->
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-    crossorigin="anonymous"></script>
-  <!-- Moment.js -->
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.16.0/moment.min.js"></script>
-  <!-- Local JS -->
-  <script type="text/javascript" src="js/event.js"></script>
-  <script type="text/javascript" src="/js/office.js"></script>
+      <!-- jQuery -->
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <!-- Bootstrap -->
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+      <!-- Moment.js -->
+      <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.16.0/moment.min.js"></script>
+      <!-- Local JS -->
+      <script type="text/javascript" src="js/event.js"></script>
+      <script type="text/javascript" src="/js/office.js"></script>
 </body>
 
 </html>

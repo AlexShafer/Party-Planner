@@ -1,11 +1,6 @@
 const createYourGuestList = $("#createYourGuestList");
 
-$(document).ready(function () {
-  AOS.init({
-    easing: "ease",
-    duration: 500
-  });
-});
+let i = 0;
 
 function gatherFormData() {
   const guestName = $("#guestName").val();
@@ -22,15 +17,19 @@ function gatherFormData() {
 
 function guestCreate() {
   const newGuest = gatherFormData();
-  $.ajax({
-    method: "POST",
-    url: "/api/guest-create",
-    data: newGuest
-  });
-};
+  try {
+    $.ajax({
+      method: "POST",
+      url: "/api/guest-create",
+      data: newGuest
+    });
+    window.location.pathname = "/viewEvent";
+  } catch (e) {
+    console.log(e);
+  }
+}
 
 // Add another guest input form
-let i = 0;
 $(addGuest).click(function () {
   event.preventDefault();
   i++;
@@ -54,5 +53,4 @@ $(addGuest).click(function () {
 $(createYourGuestList).click(function () {
   event.preventDefault();
   guestCreate();
-  window.location.pathname = "/viewEvent";
 });
