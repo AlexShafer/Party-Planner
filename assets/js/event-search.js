@@ -1,6 +1,6 @@
 const accordionWrapper = $("#accordionWrapper");
 function loadEvents() {
-  $.get("/api/Events", function(data){
+  $.get("/api/events", function (data) {
     console.log(data);
     // for loop w/ ajax.GET to populate list of events w/ eventList.append
     for (i = 0; i < data.length; i++) {
