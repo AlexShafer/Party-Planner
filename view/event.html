@@ -3,15 +3,18 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>The Party Planning Committee!</title>
+  <title id="event-title"></title>
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet" />
+
   <!-- AOS CSS Animate On Scroll -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  
   <!-- CSS -->
   <link rel="stylesheet" type="text/css" href="css/style.css" />
   <link rel="stylesheet" type="text/css" href="css/event.css" />
@@ -19,7 +22,7 @@
 </head>
 
 <body>
-  <div class="jumbotron">
+  <div class="jumbotron" id="homeButton">
     <h1>The Party Planning Committee!</h1>
     <h6 id="officeQuote"></h6>
   </div>
@@ -40,7 +43,7 @@
       <div class="col-4">
         <div class="card">
           <div class="card-header">
-            <h4>Event Location</h4>
+            <h3>Event Location</h3>
           </div>
           <div class="card-body" id="map">
             <!-- Google map will go here -->
@@ -51,13 +54,13 @@
       <div class="col-4">
         <div class="card">
           <div class="card-header">
-            <h4>Message Board:</h4>
+            <h3>Message Board:</h3>
           </div>
           <div class="card-body">
             <input class="form-control" type="text" id="author" placeholder="Enter Your Name" />
             <textarea class="form-control" rows="3" id="message-box" placeholder="Enter Message Here!"></textarea>
-            <button id="message-submit" class="btn btn-lg pull-right">
-              <h6>Submit!</h6>
+            <button id="message-submit" class="btn">
+              Submit!
             </button>
           </div>
         </div>
@@ -68,34 +71,34 @@
       <div class="col-6">
         <div class="card">
           <div class="card-header">
-            <h4>Guest List:</h4>
+            <h3>Guest List:</h3>
           </div>
-          <div class="card-body" id="guest-list">
+          <div class="card-body" id="guest-info">
             <!-- Accordion Wrapper -->
-            <div class="accordion md-accordion accordion-blocks" id="accordionWrapper" role="tablist"
+            <!-- <div class="accordion md-accordion accordion-blocks" id="accordionWrapper" role="tablist"
               aria-multiselectable="true">
-              <div class="card">
+              <div class="card"> -->
                 <!-- Card header -->
-                <div class="card-header" role="tab" id="headingGuestlist">
+                <!-- div class="card-header" role="tab" id="headingGuestlist">< -->
                   <!--Options-->
-                  <div class="dropdown float-left">
+                  <!-- <div class="dropdown float-left">
                     <button class="btn btn-info btn-sm m-0 mr-3 p-2 dropdown-toggle" type="button"
                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <i class="fas fa-pencil-alt"></i>
                     </button>
-                  </div>
+                  </div> -->
 
                   <!-- Heading -->
-                  <a data-toggle="collapse" data-parent="#accordionWrapper" href="#collapseGuestlist"
+                  <!-- <a data-toggle="collapse" data-parent="#accordionWrapper" href="#collapseGuestlist"
                     aria-expanded="true" aria-controls="collapseGuestlist">
                     <h5 class="mt-1 mb-0">
                       <span id="guestName">Guest Name</span>
-                      <i class="fas fa-angle-down rotate-icon"></i> <!-- This icon is not working :( -->
-                    </h5>
+                      <i class="fas fa-angle-down rotate-icon"></i> --> <!-- This icon is not working :( -->
+                    <!-- </h5>
                   </a>
-                </div>
+                </div> -->
                 <!-- Card body -->
-                <div id="collapseGuestlist" class="collapse" role="tabpanel" aria-labelledby="headingGuestlist"
+                <!-- <div id="collapseGuestlist" class="collapse" role="tabpanel" aria-labelledby="headingGuestlist"
                   data-parent="#accordionWrapper">
                   <div class="card-body">
                     <div id="guestInfo"></div>
@@ -103,7 +106,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -111,10 +114,10 @@
       <div class="col-6">
         <div class="card">
           <div class="card-header">
-            <h4>Messages:</h4>
+            <h3>Messages:</h3>
           </div>
           <div class="card-body">
-            <h6>Here we will display messages from user input</h6>
+            <p>Here we will display messages from user input</p>
           </div>
         </div>
       </div>
@@ -123,12 +126,18 @@
 
   <!-- jQuery -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <!-- popper.js -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
   <!-- Bootstrap -->
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
     integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
     crossorigin="anonymous"></script>
   <!-- Moment.js -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.16.0/moment.min.js"></script>
+   <!-- AOS.js -->
+   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <!-- Local JS -->
   <script type="text/javascript" src="js/event.js"></script>
   <script type="text/javascript" src="/js/office.js"></script>

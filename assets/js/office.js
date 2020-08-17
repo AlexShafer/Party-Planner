@@ -22,3 +22,9 @@ $(document).ready(function () {
     duration: 500
   });
 });
+
+const homeButton = $("#homeButton");
+
+$(homeButton).click(function(){
+  window.location.href = "/";
+});
