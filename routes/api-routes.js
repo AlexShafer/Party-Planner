@@ -41,8 +41,6 @@ module.exports = function (app) {
 
   // Creating new Event
   app.post("/api/event-create", function (req, res) {
-    // console.log("req.body raw is: ", req.body);
-
     const newEvent = {
       name: req.body.eventName,
       location: req.body.inputVenue,
@@ -54,18 +52,17 @@ module.exports = function (app) {
       date: req.body.inputDate,
       time: req.body.inputTime
     };
-
-    // console.log("req.body AFTER new key value pairs:", newEvent);
-
     db.Event.create(newEvent).then(function (dbEvent) {
-      // console.log("dbEvent is: ", dbEvent);
       res.json(dbEvent);
     });
   });
 
-  // creating guest list
+  // Creating Guest List
   app.post("/api/guest-create", function (req, res) {
     const eventId = req.query.event_id;
+
+    console.log(eventID);
+
     const guest = req.body;
     db.Guestlist.create({
       name: guest.guestName,
@@ -78,8 +75,6 @@ module.exports = function (app) {
   });
 
   // Search for Specific Guestlist (or all Guestlists) then provides JSON
-
-
   app.get("/api/:Guestlists?", function (req, res) {
     if (req.params.Guestlists) {
       // Display the JSON for ONLY that Guestlist.

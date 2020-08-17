@@ -15,3 +15,10 @@ const officeQuote = function () {
 };
 
 officeQuote();
+
+$(document).ready(function () {
+  AOS.init({
+    easing: "ease",
+    duration: 500
+  });
+});

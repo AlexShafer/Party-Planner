@@ -1,12 +1,5 @@
 const createYourParty = $("#createYourParty");
 
-$(document).ready(function () {
-  AOS.init({
-    easing: "ease",
-    duration: 500
-  });
-});
-
 function gatherFormData() {
   const eventName = $("#eventName").val();
   const eventDescription = $("#eventDescription").val();
@@ -39,7 +32,6 @@ async function eventCreate() {
     url: "/api/event-create",
     data: newEvent
   });
-  console.log("created event is: ", createdEvent);
   const eventId = "?event_id=" + createdEvent.id;
   window.location.href = "/addGuest" + eventId;
 }

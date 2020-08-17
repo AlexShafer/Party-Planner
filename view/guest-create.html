@@ -35,35 +35,46 @@
   </div>
 
   <div class="container">
+
     <div data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
       <div data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="2500">
 
-          <!-- Guest List Input -->
-          <div class="form-row" id="createGuestList">
-            <div class="form-group col-md-4">
-              <label for="inputGuestName">Name</label>
-              <input type="text" class="form-control" id="guestName">
-            </div>
-            <div class="form-group col-md-4">
-              <label for="inputGuestEmail">Email</label>
-              <input type="text" class="form-control" id="guestEmail">
-            </div>
-            <div class="form-group col-md-2">
-              <label for="inputGuestPhoneNumber">Phone Number</label>
-              <input type="text" class="form-control" id="guestPhoneNumber">
-            </div>
+        <!-- Guest List Input -->
+        <div class="form-row" id="createGuestList">
+          <div class="form-group col-4">
+            <label for="inputGuestName">Name</label>
+            <input type="text" class="form-control" id="guestName">
           </div>
-          
-          <!-- Button -->
+          <div class="form-group col-4">
+            <label for="inputGuestEmail">Email</label>
+            <input type="text" class="form-control" id="guestEmail">
+          </div>
+          <div class="form-group col-4">
+            <label for="inputGuestPhoneNumber">Phone Number</label>
+            <input type="text" class="form-control" id="guestPhoneNumber">
+          </div>
+        </div>
+
+        <!-- Add Another Guest Button -->
+        <div class="form-row">
           <div class="form-group col-md-2">
             <button type="submit" id="addGuest" class="btn btn-dark">Add Another Guest</button>
           </div>
+        </div>
+          
+        <!-- Submit -->
+        <button type="submit" id="createYourGuestList" class="btn btn-dark">Create Your Guest List and View Your Event!</button>
+        </div>
 
-          <!-- Submit -->
-          <button type="submit" id="createYourGuestList" class="btn btn-dark">Create Your Guest List and View Your Event!</button>
-        </form>
+        <!-- Display Guest List -->
+        <div class="row">
+          <div class="col-12" id="displayGuestList">
+          </div>
+        </div>
+
       </div>
     </div>
+
   </div>
 
   <!-- jQuery.js -->
