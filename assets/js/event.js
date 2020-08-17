@@ -20,12 +20,22 @@ $.get(`/api/events/${search.event_id}`, function (data) {
 // Display Guest List on the event page
 $.get(`/api/guest-list/${search.event_id}`, function (data) {
   console.log("guest list data is: ", data);
-  // the guest name
-  $("#guestInfo").append("<h6>Guest Name: " + data.name + "</h6>");
-  // the time
-  $("#guestInfo").append("<h6>Email Address: " + data.email + "</h6>");
-  // the location
-  $("#guestInfo").append("<h6>Phone Number: " + data.phoneNumber + "</h6>");
+
+  data.forEach(guest => {
+    let div = $("<div>");
+    let name =$("<h6>").text("Guest Name: " + guest.name);
+    let email =$("<h6>").text("Email Address: " + guest.email);
+    let phone =$("<h6>").text("Phone Number: " + guest.phoneNumber);
+    div.append(name, email, phone);
+    $("#guestInfo").append(div);
+  });
+
+  // // the guest name
+  // $("#guestInfo").append("<h6>Guest Name: " + data.name + "</h6>");
+  // // the time
+  // $("#guestInfo").append("<h6>Email Address: " + data.email + "</h6>");
+  // // the location
+  // $("#guestInfo").append("<h6>Phone Number: " + data.phoneNumber + "</h6>");
 });
 
 
