@@ -3,22 +3,35 @@ const createYourGuestList = $("#createYourGuestList");
 let i = 0;
 
 function gatherFormData() {
-  let formDataObject = {};
-  for(j=0; j<i; j++){
-    const guestName = $(`#guestName${j}`).val();
-    const guestEmail = $(`#guestEmail${j}`).val();
-    const guestPhoneNumber = $(`#guestPhoneNumber${j}`).val();
+  const guestName = $("#guestName").val();
+  const guestEmail = $("#guestEmail").val();
+  const guestPhoneNumber = $("#guestPhoneNumber").val();
 
-    const guestObject = {
-      guestName: guestName,
-      guestEmail: guestEmail,
-      guestPhoneNumber: guestPhoneNumber
-    };
-    formDataObject.append(guestObject);
-  }
-  console.log(formDataObject);
-  return formDataObject;
+  const guestObject = {
+    guestName: guestName,
+    guestEmail: guestEmail,
+    guestPhoneNumber: guestPhoneNumber
+  };
+  return guestObject;
 }
+
+// function gatherFormData() {
+//   let formDataObject = {};
+//   for(j=0; j<i; j++){
+//     const guestName = $(`#guestName${j}`).val();
+//     const guestEmail = $(`#guestEmail${j}`).val();
+//     const guestPhoneNumber = $(`#guestPhoneNumber${j}`).val();
+
+//     const guestObject = {
+//       guestName: guestName,
+//       guestEmail: guestEmail,
+//       guestPhoneNumber: guestPhoneNumber
+//     };
+//     formDataObject.append(guestObject);
+//   }
+//   console.log(formDataObject);
+//   return formDataObject;
+// }
 
 function guestCreate() {
   const newGuest = gatherFormData();
@@ -27,25 +40,23 @@ function guestCreate() {
     url: "/api/guest-create",
     data: newGuest
   });
-  // const eventId = "?event_id=" + ;
-  // console.log(window.location.href);
-  window.location.href = "/viewEvent";
+  window.location.pathname = "/viewEvent";
 }
 
 // Add another guest input form
 $(addGuest).click(function () {
   event.preventDefault();
   i++;
-  $(displayGuestList).prepend(
-    `<div class="form-group col-md-4">
+  $(displayGuestList).append(
+    `<div class="form-group col-4">
       <label for="inputGuestName">Name</label>
       <input type="text" class="form-control" id="guestName${i}">
     </div>
-    <div class="form-group col-md-4">
+    <div class="form-group col-4">
       <label for="inputGuestEmail">Email</label>
       <input type="text" class="form-control" id="guestEmail${i}">
     </div>
-    <div class="form-group col-md-2">
+    <div class="form-group col-4">
       <label for="inputGuestPhoneNumber">Phone Number</label>
       <input type="text" class="form-control" id="guestPhoneNumber${i}">
     </div>`

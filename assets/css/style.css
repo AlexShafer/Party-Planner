@@ -1,6 +1,6 @@
 p {
   font-family: 'Roboto', sans-serif;
-  margin: 0;
+  color: white;
   font-size: 1rem;
 }
 
@@ -20,23 +20,46 @@ h2 {
   font-size: 4rem;
 }
 
+h3 {
+  font-family: 'Lobster', cursive;
+  text-shadow: white 0rem 0rem .3rem;
+  font-size: 3rem;
+}
+
 h4 {
   font-family: 'Lobster', cursive;
   text-shadow: white 0rem 0rem .3rem;
   font-size: 2rem;
 }
 
+h5 {
+  font-family: 'Lobster', cursive;
+  text-shadow: white 0rem 0rem .3rem;
+  font-size: 1.5rem;
+}
+
 h6 {
-  text-align: center;
   margin-top: 2rem;
   text-shadow: black 0rem 0rem .5rem;
   font-family: 'Roboto', sans-serif;
   font-size: 1.5rem;
 }
 
+/* Card */
+.card {
+  background-color: rgba(7, 7, 7, 0.281);
+  margin: .5rem;
+  text-shadow: black 0rem 0rem .5rem;
+}
+
+.card-header {
+  text-align: center
+}
+
 /* Header */
 .jumbotron {
   color: white;
+  text-align: center;
   background-image: url("/images/discoball.jpg");
   background-position: center;
 }

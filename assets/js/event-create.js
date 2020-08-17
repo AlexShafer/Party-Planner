@@ -27,13 +27,18 @@ function gatherFormData() {
 
 async function eventCreate() {
   const newEvent = gatherFormData();
-  const createdEvent = await $.ajax({
-    method: "POST",
-    url: "/api/event-create",
-    data: newEvent
-  });
-  const eventId = "?event_id=" + createdEvent.id;
-  window.location.href = "/addGuest" + eventId;
+  try {
+    const createdEvent = await $.ajax({
+      method: "POST",
+      url: "/api/events",
+      data: newEvent
+    });
+    console.log("created event is: ", createdEvent);
+    const eventId = "?event_id=" + createdEvent.id;
+    window.location.href = "/addGuest" + eventId;
+  } catch (e) {
+    console.log(e);
+  }
 }
 
 // Create Event
@@ -41,6 +46,3 @@ $(createYourParty).click(function () {
   event.preventDefault();
   eventCreate();
 });
-
-
-

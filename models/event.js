@@ -38,17 +38,17 @@ module.exports = function (sequelize, DataTypes) {
       len: [1]
     },
     date: {
-      type: DataTypes.DATE,
+      type: DataTypes.STRING,
       allowNull: false
     },
     time: {
-      type: DataTypes.TIME,
+      type: DataTypes.STRING,
       allowNull: false
     }
   });
 
   Event.associate = function (models) {
-    Event.hasOne(models.Guestlist);
+    Event.hasMany(models.Guestlist);
   };
 
   return Event;
