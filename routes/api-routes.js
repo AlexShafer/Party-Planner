@@ -63,7 +63,7 @@ module.exports = function (app) {
   app.post("/api/guest-create", function (req, res) {
     const eventId = req.query.event_id;
 
-    console.log(eventID);
+    console.log(eventId);
 
     const guest = req.body;
     db.Guestlist.create({

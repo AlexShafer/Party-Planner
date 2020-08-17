@@ -46,6 +46,3 @@ $(createYourParty).click(function () {
   event.preventDefault();
   eventCreate();
 });
-
-
-

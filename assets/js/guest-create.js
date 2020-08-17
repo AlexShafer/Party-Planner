@@ -3,22 +3,35 @@ const createYourGuestList = $("#createYourGuestList");
 let i = 0;
 
 function gatherFormData() {
-  let formDataObject = {};
-  for(j=0; j<i; j++){
-    const guestName = $(`#guestName${j}`).val();
-    const guestEmail = $(`#guestEmail${j}`).val();
-    const guestPhoneNumber = $(`#guestPhoneNumber${j}`).val();
+  const guestName = $("#guestName").val();
+  const guestEmail = $("#guestEmail").val();
+  const guestPhoneNumber = $("#guestPhoneNumber").val();
 
-    const guestObject = {
-      guestName: guestName,
-      guestEmail: guestEmail,
-      guestPhoneNumber: guestPhoneNumber
-    };
-    formDataObject.append(guestObject);
-  }
-  console.log(formDataObject);
-  return formDataObject;
+  const guestObject = {
+    guestName: guestName,
+    guestEmail: guestEmail,
+    guestPhoneNumber: guestPhoneNumber
+  };
+  return guestObject;
 }
+
+// function gatherFormData() {
+//   let formDataObject = {};
+//   for(j=0; j<i; j++){
+//     const guestName = $(`#guestName${j}`).val();
+//     const guestEmail = $(`#guestEmail${j}`).val();
+//     const guestPhoneNumber = $(`#guestPhoneNumber${j}`).val();
+
+//     const guestObject = {
+//       guestName: guestName,
+//       guestEmail: guestEmail,
+//       guestPhoneNumber: guestPhoneNumber
+//     };
+//     formDataObject.append(guestObject);
+//   }
+//   console.log(formDataObject);
+//   return formDataObject;
+// }
 
 function guestCreate() {
   const newGuest = gatherFormData();
@@ -27,9 +40,7 @@ function guestCreate() {
     url: "/api/guest-create",
     data: newGuest
   });
-  // const eventId = "?event_id=" + ;
-  // console.log(window.location.href);
-  window.location.href = "/viewEvent";
+  window.location.pathname = "/viewEvent";
 }
 
 // Add another guest input form
