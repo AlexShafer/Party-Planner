@@ -27,11 +27,5 @@ module.exports = function (sequelize, DataTypes) {
     });
   };
 
-  // Guestlist.associate = function (models) {
-  //   Guestlist.hasMany(models.Supplies, {
-  //     onDelete: "cascade"
-  //   });
-  // };
-
   return Guestlist;
 };

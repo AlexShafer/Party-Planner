@@ -1,23 +1,23 @@
 const createYourGuestList = $("#createYourGuestList");
 
-$(document).ready(function () {
-  AOS.init({
-    easing: "ease",
-    duration: 500
-  });
-});
+let i = 0;
 
 function gatherFormData() {
-  const guestName = $("#guestName").val();
-  const guestEmail = $("#guestEmail").val();
-  const guestPhoneNumber = $("#guestPhoneNumber").val();
+  let formDataObject = {};
+  for(j=0; j<i; j++){
+    const guestName = $(`#guestName${j}`).val();
+    const guestEmail = $(`#guestEmail${j}`).val();
+    const guestPhoneNumber = $(`#guestPhoneNumber${j}`).val();
 
-  const guestObject = {
-    guestName: guestName,
-    guestEmail: guestEmail,
-    guestPhoneNumber: guestPhoneNumber
-  };
-  return guestObject;
+    const guestObject = {
+      guestName: guestName,
+      guestEmail: guestEmail,
+      guestPhoneNumber: guestPhoneNumber
+    };
+    formDataObject.append(guestObject);
+  }
+  console.log(formDataObject);
+  return formDataObject;
 }
 
 function guestCreate() {
@@ -27,14 +27,16 @@ function guestCreate() {
     url: "/api/guest-create",
     data: newGuest
   });
-};
+  // const eventId = "?event_id=" + ;
+  // console.log(window.location.href);
+  window.location.href = "/viewEvent";
+}
 
 // Add another guest input form
-let i = 0;
 $(addGuest).click(function () {
   event.preventDefault();
   i++;
-  $(createGuestList).append(
+  $(displayGuestList).prepend(
     `<div class="form-group col-md-4">
       <label for="inputGuestName">Name</label>
       <input type="text" class="form-control" id="guestName${i}">
@@ -54,5 +56,4 @@ $(addGuest).click(function () {
 $(createYourGuestList).click(function () {
   event.preventDefault();
   guestCreate();
-  window.location.pathname = "/viewEvent";
 });
