@@ -48,7 +48,7 @@ module.exports = function (sequelize, DataTypes) {
   });
 
   Event.associate = function (models) {
-    Event.hasOne(models.Guestlist);
+    Event.hasMany(models.Guestlist);
   };
 
   return Event;

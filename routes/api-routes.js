@@ -26,8 +26,6 @@ module.exports = function (app) {
   });
 
   app.post("/api/events", function (req, res) {
-    // console.log("req.body raw is: ", req.body);
-
     const newEvent = {
       name: req.body.eventName,
       location: req.body.inputVenue,
@@ -63,7 +61,8 @@ module.exports = function (app) {
   app.post("/api/guest-create", function (req, res) {
     const eventId = req.query.event_id;
 
-    console.log(eventId);
+    console.log("req.params is: ", req.params);
+    console.log("req.query is: ", req.query);
 
     const guest = req.body;
     db.Guestlist.create({
@@ -95,28 +94,19 @@ module.exports = function (app) {
     }
   });
 
-  // If a user sends data to add a new Guestlist...
-  app.post("/api/guest-create", function (req, res) {
-    // Take the request...
-    var Guestlist = req.body;
-
-    // Create a routeName
-
-    // Using a RegEx Pattern to remove spaces from Guestlist.name
-    // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-    let routeName = Guestlist.name.replace(/\s+/g, "").toLowerCase();
-
-    // Then add the Guestlist to the database using sequelize
-    Guestlist.create({
-      routeName: routeName,
-      type: Guestlist.type,
-      email: Guestlist.email,
-      phoneNumber: Guestlist.phoneNumber,
-
-    });
-    res.status(204).end();
+  app.get("/api/guest-list/:id", function (req, res) {
+    if (req.params.id) {
+      // Display the JSON for ONLY that Event.
+      // (Note how we're using the ORM here to run our searches)
+      db.Guestlist.findOne({ where: { id: parseInt(req.params.id) } }).then(function (result) {
+        return res.json(result);
+      });
+    } else {
+      db.Guestlist.findAll().then(function (result) {
+        return res.json(result);
+      });
+    }
   });
-  // Search for Specific Supplies (or all Suppliess) then provides JSON
 
   app.get("/api/:Suppliess?", function (req, res) {
     if (req.params.Suppliess) {

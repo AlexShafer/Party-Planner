@@ -1,19 +1,33 @@
 var search = location.search.substring(1);
+// eslint-disable-next-line
 search = JSON.parse('{"' + decodeURI(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g, '":"') + '"}');
 
+// Diplay event data on the event page
 $.get(`/api/events/${search.event_id}`, function (data) {
   console.log(data);
   // the name
   $("#event-name").append("<h4>" + data.name + "</h4>");
   // the date
-  $("#event-details").append("<h4>Event Date: " + data.date + "</h4>");
+  $("#event-details").append("<h5>Event Date: " + data.date + "</h5>");
   // the time
-  $("#event-details").append("<h4>Event Time: " + data.time + "</h4>");
+  $("#event-details").append("<h5>Event Time: " + data.time + "</h5>");
   // the location
-  $("#event-details").append("<h4>Location: " + data.location + "</h4>");
+  $("#event-details").append("<h5>Location: " + data.location + "</h5>");
   // the theme
-  $("#event-details").append("<h4>Theme: " + data.theme + "</h4>");
+  $("#event-details").append("<h5>Theme: " + data.theme + "</h5>");
 });
+
+// Display Guest List on the event page
+$.get(`/api/guest-list/${search.event_id}`, function (data) {
+  console.log("guest list data is: ", data);
+  // the guest name
+  $("#guestInfo").append("<h6>Guest Name: " + data.name + "</h6>");
+  // the time
+  $("#guestInfo").append("<h6>Email Address: " + data.email + "</h6>");
+  // the location
+  $("#guestInfo").append("<h6>Phone Number: " + data.phoneNumber + "</h6>");
+});
+
 
 // // event map
 // var geocoder;
@@ -72,7 +86,7 @@ $.get(`/api/events/${search.event_id}`, function (data) {
 // async function fillGuestList () {
 //   const guestList = await getGuestList ();
 //   // console.log(guestList);
-//   // make a loop listing all guests and populating html page 
+//   // make a loop listing all guests and populating html page
 // }
 
 // $(accordionWrapper).HTML(fillGuestList());

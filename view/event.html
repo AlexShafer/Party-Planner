@@ -20,7 +20,7 @@
 
 <body>
   <div class="jumbotron">
-    <h1 class="text-center">The Party Planning Committee!</h1>
+    <h1>The Party Planning Committee!</h1>
     <h6 id="officeQuote"></h6>
   </div>
 
@@ -57,12 +57,11 @@
             <input class="form-control" type="text" id="author" placeholder="Enter Your Name" />
             <textarea class="form-control" rows="3" id="message-box" placeholder="Enter Message Here!"></textarea>
             <button id="message-submit" class="btn btn-lg pull-right">
-              Submit!
+              <h6>Submit!</h6>
             </button>
           </div>
         </div>
       </div>
-      <!-- row end -->
     </div>
 
     <div class="row">
@@ -71,7 +70,7 @@
           <div class="card-header">
             <h4>Guest List:</h4>
           </div>
-          <div class="card-body">
+          <div class="card-body" id="guest-list">
             <!-- Accordion Wrapper -->
             <div class="accordion md-accordion accordion-blocks" id="accordionWrapper" role="tablist"
               aria-multiselectable="true">
@@ -99,7 +98,7 @@
                 <div id="collapseGuestlist" class="collapse" role="tabpanel" aria-labelledby="headingGuestlist"
                   data-parent="#accordionWrapper">
                   <div class="card-body">
-                    <p></p>
+                    <div id="guestInfo"></div>
                     Guest Information, food, beverage, etc list
                   </div>
                 </div>
@@ -115,11 +114,11 @@
             <h4>Messages:</h4>
           </div>
           <div class="card-body">
-            <p>Here we will display messages from user input</p>
+            <h6>Here we will display messages from user input</h6>
           </div>
         </div>
       </div>
-    </div> <!-- row end -->
+    </div>
   </div>
 
   <!-- jQuery -->

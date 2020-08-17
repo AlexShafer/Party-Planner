@@ -47,16 +47,16 @@ function guestCreate() {
 $(addGuest).click(function () {
   event.preventDefault();
   i++;
-  $(displayGuestList).prepend(
-    `<div class="form-group col-md-4">
+  $(displayGuestList).append(
+    `<div class="form-group col-4">
       <label for="inputGuestName">Name</label>
       <input type="text" class="form-control" id="guestName${i}">
     </div>
-    <div class="form-group col-md-4">
+    <div class="form-group col-4">
       <label for="inputGuestEmail">Email</label>
       <input type="text" class="form-control" id="guestEmail${i}">
     </div>
-    <div class="form-group col-md-2">
+    <div class="form-group col-4">
       <label for="inputGuestPhoneNumber">Phone Number</label>
       <input type="text" class="form-control" id="guestPhoneNumber${i}">
     </div>`
