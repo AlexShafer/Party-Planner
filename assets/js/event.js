@@ -32,42 +32,52 @@ $.get(`/api/guest-list/${search.event_id}`, function (data) {
 
 
 // // event map
-// var geocoder;
-// var map;
+var geocoder;
+var map;
 
-// function initMap() {
-//   geocoder = new google.maps.Geocoder();
-//   map = new google.maps.Map(document.getElementById('map'), {
-//     center: { lat: -34.397, lng: 150.644 },
-//     zoom: 8,
-//     streetViewControl: false
-//   });
+function codeAddress() {
 
-//   let markers = eventLocation.features;
-//   console.log(markers);
-//   let locationName = markers.properties.venuName;
-//   let latitude = markers.geometry.coordinates[1];
-//   let longitude = markers.geometry.coordinates[0];
-//   console.log(locationName + ": " + latitide + " " + longitude);
-//   dropMarker(latitude, longitude, locationName);
-// }
+  // Define address to center map to
+  var address = "Portland, Oregon";
 
-// function dropMarker(lat, long, locationName) {
-//   var location = { lat: lat, lng: lng };
-//   var contentString = "<h4>" + locationName + "</h4>";
-//   var infowindow = new google.maps.InfoWindow({
-//     content: contentString
-//   });
-//   var marker = new google.maps.Marker({ position: location, map: map, title: locationName });
-//   marker.addListener('click', function () {
-//     infowindow.open(map, marler);
-//   });
-// }
+  geocoder.geocode({
+    "address": address
+  }, function(results, status) {
 
-// const eventLocation = {
-//   "type": "FeatureCollection",
-//   "features": [
-//     { "type": "Feature", "properties": { "venueName": "PULL FROM DB" }, "geometry": { "type": "Point", "coordinates": [66.666666, 77.77777] } }
-//   ]
-// };
+    if (status === google.maps.GeocoderStatus.OK) {
 
+      // Center map on location
+      map.setCenter(results[0].geometry.location);
+
+      // Add marker on location
+      var marker = new google.maps.Marker({
+        map: map,
+        position: results[0].geometry.location
+      });
+
+      marker();
+
+    } else {
+
+      alert("Geocode was not successful for the following reason: " + status);
+    }
+  });
+}
+
+function initialize() {
+
+  geocoder = new google.maps.Geocoder();
+
+  var latlng = new google.maps.LatLng(0, 0);
+  var mapOptions = {
+    zoom: 10,
+    center: latlng
+  };
+
+  map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+  // Call the codeAddress function (once) when the map is idle (ready)
+  google.maps.event.addListenerOnce(map, "idle", codeAddress);
+}
+
+initialize();
