@@ -47,7 +47,7 @@ function guestCreate() {
 $(addGuest).click(function () {
   event.preventDefault();
   i++;
-  $(displayGuestList).append(
+  $(createGuestList).append(
     `<div class="form-group col-4">
       <label for="inputGuestName">Name</label>
       <input type="text" class="form-control" id="guestName${i}">
