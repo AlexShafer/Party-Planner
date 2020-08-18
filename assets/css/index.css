@@ -1,3 +1,12 @@
+#pageContentContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto; 
+  padding: 2rem;
+  flex-direction: column;
+}
+
 .btn {
   margin: 2rem;
   width: 20rem;

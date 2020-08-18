@@ -71,24 +71,3 @@ $.get(`/api/guest-list/${search.event_id}`, function (data) {
 //   ]
 // };
 
-// const accordionWrapper = $("#accordionWrapper");
-
-// async function getGuestList () {
-//   // ajax call for guestlist
-//   $.ajax(
-//     {
-//       method: "GET",
-//       url: "/api/guestlist",
-//       data: guests
-//     }
-//   );
-//   return guests;
-// }
-
-// async function fillGuestList () {
-//   const guestList = await getGuestList ();
-//   // console.log(guestList);
-//   // make a loop listing all guests and populating html page
-// }
-
-// $(accordionWrapper).HTML(fillGuestList());

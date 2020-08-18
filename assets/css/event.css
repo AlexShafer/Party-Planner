@@ -1,4 +1,6 @@
-
+#eventPageContentContainer {
+    padding: 2rem;
+  }
 
 #map {
     height: 4rem;

@@ -9,11 +9,11 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-   <!-- jQuery -->
-   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <!-- jQuery -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-   <!-- Moment.js -->
-   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.16.0/moment.min.js"></script>
+  <!-- Moment.js -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.16.0/moment.min.js"></script>
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
@@ -36,22 +36,28 @@
     </div>
   </div>
 
-  <div class="container" id="pageContentContainer">
+  <div class="container" id="eventSearchContentContainer">
 
-    <div class="row">
-      <div class="col-12">
-        <div class="card">
-          <div class="card-header">
-            <h2>Events</h2>
-          </div>
-          <div class="card-body" id="event-list">
+    <!-- animate on scroll -->
+    <div data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="500">
+      <div data-aos="fade-in" data-aos-easing="ease-out-cubic" data-aos-duration="500">
+
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h2>Events</h2>
+              </div>
+              <div class="card-body" id="event-list">
+                <!-- events will be listed here -->
               </div>
             </div>
           </div>
-          </div>
         </div>
+
       </div>
     </div>
+    
   </div>
 
   <!-- jQuery -->
@@ -66,9 +72,11 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
     integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
     crossorigin="anonymous"></script>
+  <!-- AOS.js -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <!-- Local JS -->
-  <script type="text/javascript" src="js/event-search.js"></script>
-  <script type="text/javascript" src="/js/office.js"></script>
+    <script type="text/javascript" src="js/event-search.js"></script>
+    <script type="text/javascript" src="/js/office.js"></script>
 </body>
 
 </html>
