@@ -53,9 +53,19 @@ body {
   background-position: center;
 }
 
+#pageContentContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto; 
+  padding: 2rem;
+  flex-direction: column;
+}
+
 .card {
   background-color: rgba(7, 7, 7, 0.281);
   margin: .5rem;
+  padding: .5rem;
   text-shadow: black 0rem 0rem .5rem;
 }
 
