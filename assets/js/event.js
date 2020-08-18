@@ -30,7 +30,6 @@ $.get(`/api/guest-list/${search.event_id}`, function (data) {
   $("#guest-info").append("<h4>Phone Number: " + data.phoneNumber + "</h4>");
 });
 
-
 // // event map
 var geocoder;
 var map;
@@ -38,7 +37,11 @@ var map;
 function codeAddress() {
 
   // Define address to center map to
-  var address = "Portland, Oregon";
+  // const address = "" + data.address + ", " + data.city + ", " + data.state;
+  // const address = `${data.address}, ${data.city}, ${data.state}`;
+  const address = "17727 SE Scrutton Lane, Milwaukie, Oregon";
+  console.log(address);
+
 
   geocoder.geocode({
     "address": address
