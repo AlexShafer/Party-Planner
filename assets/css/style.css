@@ -51,15 +51,7 @@ body {
   text-shadow: black 0rem 0rem .3rem;
   background-image: url("/images/discoball.jpg");
   background-position: center;
-}
-
-#pageContentContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto; 
-  padding: 2rem;
-  flex-direction: column;
+  cursor: pointer;
 }
 
 .card {

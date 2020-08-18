@@ -1,0 +1,7 @@
+#eventSearchContentContainer {
+    padding: 2rem;
+  }
+
+#event-list {
+  cursor: pointer;
+}
