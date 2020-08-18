@@ -35,6 +35,35 @@ $.get(`/api/guest-list/${search.event_id}`, function (data) {
 var geocoder;
 var map;
 
+function codeAddress() {
+
+  // Define address to center map to
+  var address = "Portland, Oregon";
+
+  geocoder.geocode({
+    "address": address
+  }, function(results, status) {
+
+    if (status === google.maps.GeocoderStatus.OK) {
+
+      // Center map on location
+      map.setCenter(results[0].geometry.location);
+
+      // Add marker on location
+      var marker = new google.maps.Marker({
+        map: map,
+        position: results[0].geometry.location
+      });
+
+      marker();
+
+    } else {
+
+      alert("Geocode was not successful for the following reason: " + status);
+    }
+  });
+}
+
 function initialize() {
 
   geocoder = new google.maps.Geocoder();
@@ -48,34 +77,7 @@ function initialize() {
   map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
   // Call the codeAddress function (once) when the map is idle (ready)
-  google.maps.event.addListenerOnce(map, 'idle', codeAddress);
-}
-
-function codeAddress() {
-
-  // Define address to center map to
-  var address = 'Portland, Oregon';
-
-  geocoder.geocode({
-    'address': address
-  }, function(results, status) {
-
-    if (status == google.maps.GeocoderStatus.OK) {
-
-      // Center map on location
-      map.setCenter(results[0].geometry.location);
-
-      // Add marker on location
-      var marker = new google.maps.Marker({
-        map: map,
-        position: results[0].geometry.location
-      });
-
-    } else {
-
-      alert("Geocode was not successful for the following reason: " + status);
-    }
-  });
+  google.maps.event.addListenerOnce(map, "idle", codeAddress);
 }
 
 initialize();
