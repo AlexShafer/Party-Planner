@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "1337314R84l1f3",
+    "password": "",
     "database": "party_planner",
     "host": "127.0.0.1",
     "port": 3306,

@@ -6,3 +6,13 @@
     height: 19rem;
     width: 19rem;
 }
+
+#guestInfo {
+  font-family: 'Lobster', cursive;
+  color: rgb(173, 173, 173);
+  text-shadow: rgb(89, 83, 175) 0rem 0rem .3rem;
+}
+
+#guestName {
+font-size: larger;
+}
