@@ -93,6 +93,32 @@
                 <h3>Guest List:</h3>
               </div>
               <div class="card-body" id="guest-info">
+                <div class="accordion md-accordion accordion-blocks" id="accordionWrapper" role="tablist"
+                aria-multiselectable="true">
+                <div class="card">
+                  <!-- Card header -->
+                  <div class="card-header" role="tab" id="headingGuestlist">
+                    <!--Options-->
+
+  
+                    <!-- Heading -->
+                    <a data-toggle="collapse" data-parent="#accordionWrapper" href="#collapseGuestlist"
+                      aria-expanded="true" aria-controls="collapseGuestlist">
+                      <h5 class="mt-1 mb-0">
+                        <span id="guestName">Display Guest Details</span>
+                      </h5>
+                    </a>
+                  </div>
+                  <!-- Card body -->
+                  <div id="collapseGuestlist" class="collapse" role="tabpanel" aria-labelledby="headingGuestlist"
+                    data-parent="#accordionWrapper">
+                    <div class="card-body">
+                      <div id="guestInfo"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               </div>
             </div>
           </div>

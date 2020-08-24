@@ -59,7 +59,6 @@ module.exports = function (app) {
 
   // creating guest list
   app.post("/api/guest-create", function (req, res) {
-    const eventId = req.query.event_id;
 
     console.log("req.params is: ", req.params);
     console.log("req.query is: ", req.query);
@@ -69,7 +68,7 @@ module.exports = function (app) {
       name: guest.guestName,
       email: guest.guestEmail,
       phoneNumber: guest.guestPhoneNumber,
-      EventId: eventId
+      EventId: guest.EventId
     }).then(function (dbGuestlist) {
       res.json(dbGuestlist);
     });
@@ -98,7 +97,7 @@ module.exports = function (app) {
     if (req.params.id) {
       // Display the JSON for ONLY that Event.
       // (Note how we're using the ORM here to run our searches)
-      db.Guestlist.findOne({ where: { id: parseInt(req.params.id) } }).then(function (result) {
+      db.Guestlist.findAll({ where: { EventId: parseInt(req.params.id) } }).then(function (result) {
         return res.json(result);
       });
     } else {

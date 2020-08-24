@@ -22,13 +22,16 @@ $.get(`/api/events/${search.event_id}`, function (data) {
 // Display Guest List on the event page
 $.get(`/api/guest-list/${search.event_id}`, function (data) {
   console.log("guest list data is: ", data);
-  // the guest name
-  $("#guest-info").append("<h4>Guest Name: " + data.name + "</h4>");
-  // the time
-  $("#guest-info").append("<h4>Email Address: " + data.email + "</h4>");
-  // the location
-  $("#guest-info").append("<h4>Phone Number: " + data.phoneNumber + "</h4>");
+  data.forEach(guest => {
+    let div = $("<div>");
+    let name =$("<h4>").text("Name: " + guest.name);
+    let email =$("<h4>").text("Email Address: " + guest.email);
+    let phone =$("<h4>").text("Phone Number: " + guest.phoneNumber);
+    div.append(name, email, phone, $("<br/>"));
+    $("#guestInfo").append(div);
+  });
 });
+
 
 // // event map
 var geocoder;
