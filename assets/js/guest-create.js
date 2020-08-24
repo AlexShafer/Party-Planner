@@ -54,16 +54,16 @@ function addGuestInput(event) {
   if (event) {
     event.preventDefault();
   }
-  let formRow = $(`<div class="form-row">`);
-  let nameFormGroup = $(`<div class="form-group col-4">`);
+  let formRow = $("<div class=\"form-row\">");
+  let nameFormGroup = $("<div class=\"form-group col-4\">");
   let nameLabel = $(`<label for="inputGuestName${dataFetchers.length}">`).text("Name");
   let nameInput = $(`<input type="text" class="form-control" id="inputGuestName${dataFetchers.length}">`);
   nameFormGroup.append(nameLabel, nameInput);
-  let emailFormGroup = $(`<div class="form-group col-4">`);
+  let emailFormGroup = $("<div class=\"form-group col-4\">");
   let emailLabel = $(`<label for="inputGuestEmail${dataFetchers.length}">`).text("Email");
   let emailInput = $(`<input type="text" class="form-control" id="inputGuestEmail${dataFetchers.length}">`);
   emailFormGroup.append(emailLabel, emailInput);
-  let phoneFormGroup = $(`<div class="form-group col-4">`);
+  let phoneFormGroup = $("<div class=\"form-group col-4\">");
   let phoneLabel = $(`<label for="inputGuestPhone${dataFetchers.length}">`).text("Phone Number");
   let phoneInput = $(`<input type="text" class="form-control" id="inputGuestPhone${dataFetchers.length}">`);
   phoneFormGroup.append(phoneLabel, phoneInput);
