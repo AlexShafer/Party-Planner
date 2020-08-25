@@ -1,4 +1,5 @@
 /* Text */
+
 p {
   font-family: 'Lobster', cursive;
   color: rgb(173, 173, 173);
@@ -65,17 +66,17 @@ body {
   text-align: center
 }
 
-
 /* Forms */
-input,
-textarea {
+
+input, textarea {
   margin: 20px;
 }
 
 /* Buttons */
+
 .btn-dark {
   font-family: 'Lobster', cursive;
-  font-size: 2rem;;
+  font-size: 2rem;
   color: #1da1f2;
   border-color: #1da1f2;
   border-style: solid;
@@ -86,5 +87,11 @@ textarea {
 }
 
 .btn-dark:hover {
-  border-color:white
+  border-color: white
+}
+
+/* Nav Bar */
+
+.navbar-dark {
+  background-color: rgba(0, 0, 0, 0.404);
 }
