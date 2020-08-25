@@ -1,10 +1,10 @@
 #eventPageContentContainer {
-    padding: 2rem;
-  }
+  padding: 2rem;
+}
 
 #map {
-    height: 19rem;
-    width: 19rem;
+  height: 19rem;
+  width: 19rem;
 }
 
 #guestInfo {
@@ -14,5 +14,5 @@
 }
 
 #guestName {
-font-size: larger;
+  font-size: larger;
 }
