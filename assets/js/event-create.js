@@ -33,7 +33,6 @@ async function eventCreate() {
       url: "/api/events",
       data: newEvent
     });
-    console.log("created event is: ", createdEvent);
     const eventId = "?event_id=" + createdEvent.id;
     window.location.href = "/addGuest" + eventId;
   } catch (e) {

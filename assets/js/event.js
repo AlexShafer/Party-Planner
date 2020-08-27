@@ -1,10 +1,16 @@
-var search = location.search.substring(1);
+let search = location.search.substring(1);
+
+let address; // initializing address variable for google maps api
+
 // eslint-disable-next-line
 search = JSON.parse('{"' + decodeURI(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g, '":"') + '"}');
 
 // Diplay event data on the event page
 $.get(`/api/events/${search.event_id}`, function (data) {
-  console.log(data);
+  // console.log(data);
+
+  address = `${data.address}, ${data.city}, ${data.state}`; // setting value for google maps api later
+
   // append the event name to the title
   $("#event-title").append(data.name);
   // the name
@@ -21,7 +27,6 @@ $.get(`/api/events/${search.event_id}`, function (data) {
 
 // Display Guest List on the event page
 $.get(`/api/guest-list/${search.event_id}`, function (data) {
-  console.log("guest list data is: ", data);
   data.forEach(guest => {
     let div = $("<div>");
     let name =$("<h4>").text("Name: " + guest.name);
@@ -40,11 +45,7 @@ var map;
 function codeAddress() {
 
   // Define address to center map to
-  // const address = "" + data.address + ", " + data.city + ", " + data.state;
-  // const address = `${data.address}, ${data.city}, ${data.state}`;
-  const address = "17727 SE Scrutton Lane, Milwaukie, Oregon";
-  console.log(address);
-
+  console.log("address is: ", address);
 
   geocoder.geocode({
     "address": address
