@@ -6,38 +6,6 @@ var search = location.search.substring(1);
 // eslint-disable-next-line
 search = JSON.parse('{"' + decodeURI(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g, '":"') + '"}');
 
-// function gatherFormData() {
-//   const guestName = $("#guestName").val();
-//   const guestEmail = $("#guestEmail").val();
-//   const guestPhoneNumber = $("#guestPhoneNumber").val();
-//   //need to grab Event // where is the event id at the time of submitting form?
-//   const guestObject = {
-//     guestName: guestName,
-//     guestEmail: guestEmail,
-//     guestPhoneNumber: guestPhoneNumber,
-//     EventId: search.event_id
-//   };
-//   return guestObject;
-// }
-
-// function gatherFormData() {
-//   let formDataObject = {};
-//   for(j=0; j<i; j++){
-//     const guestName = $(`#guestName${j}`).val();
-//     const guestEmail = $(`#guestEmail${j}`).val();
-//     const guestPhoneNumber = $(`#guestPhoneNumber${j}`).val();
-
-//     const guestObject = {
-//       guestName: guestName,
-//       guestEmail: guestEmail,
-//       guestPhoneNumber: guestPhoneNumber
-//     };
-//     formDataObject.append(guestObject);
-//   }
-//   console.log(formDataObject);
-//   return formDataObject;
-// }
-
 function guestCreate() {
   dataFetchers.forEach(function (dataFetcher) {
     const newGuest = dataFetcher();
