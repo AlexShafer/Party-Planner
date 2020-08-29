@@ -15,7 +15,8 @@ module.exports = function (app) {
     // In this case, just db.Post
     let name = req.query.name;
     let query = {
-      include: [db.Guestlist]
+      include: [db.Guestlist],
+      include: [db.messageBoard]
     };
     if (name) {
       query.where = { name };
