@@ -55,5 +55,12 @@ module.exports = function (sequelize, DataTypes) {
     });
   };
 
+  Event.associate = function (models) {
+    // Associating Event with its message board
+    Event.hasMany(models.messageBoard, {
+      onDelete: "cascade"
+    });
+  };
+
   return Event;
 };

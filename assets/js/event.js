@@ -1,3 +1,4 @@
+const messageBoard = document.getElementById("messageBoard");
 let search = location.search.substring(1);
 
 let address; // initializing address variable for google maps api
@@ -37,6 +38,37 @@ $.get(`/api/guest-list/${search.event_id}`, function (data) {
   });
 });
 
+function fillMessageBoard (){
+  $.get(`/api/messageBoard/${search.event_id}`, function(data){
+    messageBoard.innerHTML = ""; // Cleans out message board to avoid double posts
+    console.log("data is: ", data);
+    data.forEach(message => {
+      $(messageBoard).append(`<p>${message.author}: ${message.message}</p>`);
+    });
+  });
+}
+
+function postMessage(){
+  let newMessage = {
+    author: $("#author").val(),
+    message: $("#message-box").val(),
+    EventId: search.event_id
+  };
+  $.ajax({
+    method: "POST",
+    url: "/api/messageBoard",
+    data: newMessage
+  });
+}
+
+$("#message-submit").click(function(){
+  event.preventDefault();
+  postMessage();
+  fillMessageBoard();
+  fillMessageBoard();
+});
+
+fillMessageBoard();
 
 // // event map
 var geocoder;
