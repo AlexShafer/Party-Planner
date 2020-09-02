@@ -45,8 +45,7 @@ Technology used in this application: Node, Express, Javascript, AJAX, API, HTML5
     
 ## License: 
     
-No licenses required.
-    
+MIT    
 
 ## Contributing: 
 
