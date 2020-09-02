@@ -75,22 +75,17 @@ If you have any questions about this project or would like to collaborrate with 
 
 **Main Page**
 
-![](/assets/images/mainpage.jpg)
+![](/assets/images/mainPage.png)
 
 
 **Event Page**
 
-![](/assets/images/eventpage.jpg)
-
-
-**Guest List**
-
-![](/assets/images/guestlist.jpg)
+![](/assets/images/eventPage.png)
 
 
 **Event Search**
 
-![](/assets/images/eventsearch.jpg)
+![](/assets/images/eventSearchPage.png)
 
 
 
